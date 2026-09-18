@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIIC 4.0 — Official Evaluation Portal / Portal Penilaian Rasmi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-800 min-h-screen py-6 px-3 md:px-8">
+
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-800" id="form-container">
+        
+        <!-- Header Banner Kreatif -->
+        <div class="bg-gradient-to-br from-slate-950 via-emerald-950 to-teal-900 p-6 md:p-10 text-white relative overflow-hidden border-b border-emerald-500/20">
+            
+            <!-- LATAR BELAKANG LOGO BIIC 4.0 -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-55 pointer-events-none select-none overflow-hidden">
+                <img src="https://lh3.googleusercontent.com/d/1psMxai3V0E5NplPJrIc9VKgVrRnuNQ9z" alt="BIIC 4.0 Background Logo" class="w-full h-full object-cover filter brightness-125 contrast-110 drop-shadow-2xl scale-105">
+            </div>
+
+            <!-- Gradient Layer Nipis Untuk Mengekalkan Ketajaman Teks -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-emerald-950/65 to-teal-950/75 pointer-events-none"></div>
+
+            <!-- Latar Belakang Ambient Light (Glow Effect) -->
+            <div class="absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-teal-400/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+                <!-- Ruang Logo KV Bintulu & Tajuk Utama -->
+                <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                    
+                    <!-- Bingkai Logo KV Bintulu -->
+                    <div class="w-24 h-24 bg-white/10 backdrop-blur-xl rounded-2xl p-2 border border-white/20 flex items-center justify-center shrink-0 shadow-2xl ring-1 ring-black/5 hover:scale-105 transition duration-300 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/d/1XzIhoFufDGofaEduviyxH-1IElfWGVK6" alt="Logo Kolej Vokasional Bintulu" class="max-h-full max-w-full object-contain filter drop-shadow-md scale-125 transform">
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center justify-center md:justify-start gap-2 mb-1.5 flex-wrap">
+                            <span class="bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm backdrop-blur-md">
+                                Portal Penilaian Rasmi / Official Portal
+                            </span>
+                            <span class="bg-teal-400/20 text-teal-200 border border-teal-400/30 text-[10px] font-semibold px-2.5 py-0.5 rounded-full backdrop-blur-md">
+                                Versi 1.0
+                            </span>
+                        </div>
+                        <h1 class="text-2xl md:text-4xl font-black tracking-tight text-white drop-shadow-lg">
+                            BIIC 4.0 <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-200">JUDGING SYSTEM</span>
+                        </h1>
+                        <p class="text-xs md:text-sm text-slate-200 font-medium mt-1 drop-shadow-sm">
+                            Borneo Innovation and Invention Competition • AI & Green Technology
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Status Lencana Keselamatan -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-3.5 text-center shrink-0 shadow-inner min-w-[170px]">
+                    <span class="text-[9px] text-emerald-300/90 block uppercase font-bold tracking-widest mb-0.5">Tahap Keselamatan</span>
+                    <span class="text-xs font-bold text-white flex items-center justify-center gap-2">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
+                        SULIT / CONFIDENTIAL
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <form id="scoringForm" onsubmit="event.preventDefault();" class="p-6 md:p-10 space-y-8">
+            
+            <!-- Maklumat Hakim & Peserta -->
+            <div>
+                <h3 class="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    Maklumat Penilai & Peserta / Evaluation Details
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="md:col-span-2">
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+                            Nama Hakim <span class="text-slate-400 font-normal">/ Judge's Name</span>
+                        </label>
+                        <input type="text" id="namaHakim" required class="w-full rounded-xl border-slate-200 p-3 text-sm border bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none transition" placeholder="Cth: Dr. Alex Wong / En. Ahmad Farhan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+                            Kod / ID Peserta <span class="text-slate-400 font-normal">/ Participant ID</span>
+                        </label>
+                        <input type="text" id="kodPeserta" required class="w-full rounded-xl border-slate-200 p-3 text-sm border bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none transition font-mono font-bold text-slate-800" placeholder="Cth: BIIC-J-012">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+                            Tajuk Projek <span class="text-slate-400 font-normal">/ Project Title</span>
+                        </label>
+                        <input type="text" id="namaProjek" required class="w-full rounded-xl border-slate-200 p-3 text-sm border bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none transition" placeholder="Cth: AI Eco-Sort System">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+                            Kategori <span class="text-slate-400 font-normal">/ Category</span>
+                        </label>
+                        <select id="kategori" class="w-full rounded-xl border-slate-200 p-3 text-sm border bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none transition font-medium">
+                            <option value="Junior">Junior (Sek. Rendah / Sek. Menengah / KV - SVM)</option>
+                            <option value="Tertiary">Tertiary (IPTA / IPTS / ILKA / KV - DVM)</option>
+                            <option value="Profesional">Profesional (Awam / Industri / Pensyarah / Agensi)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+                            Peringkat Penilaian <span class="text-slate-400 font-normal">/ Evaluation Stage</span>
+                        </label>
+                        <select id="peringkat" onchange="switchRubric()" class="w-full rounded-xl border-emerald-300 p-3 text-sm border bg-emerald-50/40 text-emerald-900 font-bold focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                            <option value="preliminary">Peringkat Awal / Preliminary Stage (Video & Poster)</option>
+                            <option value="final">Peringkat Akhir / Final Stage (Pembentangan & Demo)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seksyen Rubrik Pemarkahan -->
+            <div>
+                <div class="border-b border-slate-100 pb-3 mb-6">
+                    <h2 class="text-lg font-extrabold text-slate-900" id="rubricTitle">Rubrik Penilaian / Assessment Rubric</h2>
+                    <p class="text-xs text-slate-500 mt-0.5" id="rubricDesc"></p>
+                </div>
+
+                <div id="rubricFields" class="space-y-6"></div>
+            </div>
+
+            <!-- Feedback -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">
+                    Ulasan & Cadangan Hakim <span class="text-slate-400 font-normal">/ Judge's Feedback & Recommendations</span>
+                </label>
+                <textarea id="ulasan" rows="3" class="w-full rounded-xl border-slate-200 border p-3.5 text-sm bg-slate-50/50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none transition" placeholder="Berikan ulasan membina untuk peserta / Provide constructive feedback..."></textarea>
+            </div>
+
+            <!-- Jumlah Markah Kad Dashboard -->
+            <div class="bg-gradient-to-br from-emerald-600 via-teal-600 to-slate-800 rounded-2xl p-6 text-center text-white shadow-xl relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-200 block mb-1">JUMLAH MARKAH KESELURUHAN / GRAND TOTAL SCORE</span>
+                <div class="text-5xl font-black tracking-tight my-1"><span id="totalScore">0</span> <span class="text-xl font-normal text-emerald-200">/ 100</span></div>
+                <p class="text-[11px] text-emerald-100/70 mt-1">Markah dikira secara automatik berdasarkan pemberat rubrik.</p>
+            </div>
+
+            <!-- Butang Hantar -->
+            <button type="button" id="submitBtn" onclick="hantarBorang()" class="w-full bg-slate-900 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 text-sm tracking-wide">
+                <span>🚀</span> HANTAR MARKAH PENILAIAN / SUBMIT SCORE
+            </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="bg-slate-50 border-t border-slate-100 p-4 text-center text-xs text-slate-400 font-medium">
+            Borneo Innovation and Invention Competition (BIIC 4.0) • Digital Assessment System v1.0
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const SCRIPT_URL = "GANTIKAN_DENGAN_GOOGLE_SCRIPT_URL_ANDA";
+
+        const rubrics = {
+            preliminary: {
+                title: "Rubrik Penilaian Peringkat Awal / Preliminary Stage Rubric",
+                desc: "Menilai cadangan awal, konsep inovasi utama, kualiti dokumentasi, dan video pitch.",
+                criteria: [
+                    { id: "k1", label: "1. Keaslian & Relevansi Tema / Originality & Theme Alignment", max: 20, desc: "Keaslian idea dan keselarasan dengan tema AI & Green Tech." },
+                    { id: "k2", label: "2. Nilai Inovasi & Impak / Innovation Value & Impact", max: 25, desc: "Keunikan dan potensi menyelesaikan masalah sebenar." },
+                    { id: "k3", label: "3. Kualiti Produk & Keberfungsian / Product Quality & Functionality", max: 25, desc: "Boleh laksana, kualiti binaan prototaip, dan logik operasi." },
+                    { id: "k4", label: "4. Persembahan & Penyampaian Video / Presentation & Video Pitch", max: 20, desc: "Kejelasan persembahan video, struktur, dan kelancaran komunikasi." },
+                    { id: "k5", label: "5. Dokumentasi & Rekabentuk Poster / Documentation & Poster Design", max: 10, desc: "Kelengkapan visual poster, struktur data, dan kejelasan maklumat." }
+                ]
+            },
+            final: {
+                title: "Rubrik Penilaian Peringkat Akhir / Final Stage Rubric",
+                desc: "Menilai demonstrasi prototaip secara langsung, pertahanan teknikal, dan kebolehpasaran.",
+                criteria: [
+                    { id: "k1", label: "1. Prototaip Sebenar & Keberfungsian Teknikal / Live Prototype & Functionality", max: 30, desc: "Pelaksanaan masa nyata, kestabilan, dan integrasi elemen teknikal." },
+                    { id: "k2", label: "2. Inovasi, Nilai Komersial & Kebolehlaksanaan / Commercial Value & Feasibility", max: 25, desc: "Potensi komersialisasi, kecekapan kos, dan kesediaan pasaran." },
+                    { id: "k3", label: "3. Persembahan Lisan & Persediaan Booth / Oral Pitch & Booth Setup", max: 20, desc: "Profesionalisme penyampaian, susun atur booth, dan daya tarikan visual." },
+                    { id: "k4", label: "4. Sesi Soal Jawab & Penguasaan / Q&A Defense & Mastery", max: 15, desc: "Kedalaman pengetahuan domain, penyelesaian masalah, dan keyakinan." },
+                    { id: "k5", label: "5. Data Pengesahan & Buku Log / Verification Data & Logbook", max: 10, desc: "Ketepatan data ujian, rekod buku log, dan metrik sokongan." }
+                ]
+            }
+        };
+
+        function switchRubric() {
+            const stage = document.getElementById('peringkat').value;
+            const currentRubric = rubrics[stage];
+            document.getElementById('rubricTitle').innerText = currentRubric.title;
+            document.getElementById('rubricDesc').innerText = currentRubric.desc;
+
+            const container = document.getElementById('rubricFields');
+            container.innerHTML = '';
+            
+            currentRubric.criteria.forEach(item => {
+                container.innerHTML += `
+                    <div class="p-5 bg-slate-50/80 rounded-2xl border border-slate-200/80 hover:border-emerald-300 transition shadow-sm">
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="font-bold text-slate-800 text-sm md:text-base">${item.label}</label>
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-100/90 border border-emerald-200 px-3 py-1 rounded-lg shrink-0">
+                                <span id="val_${item.id}" class="text-sm font-extrabold">0</span> / ${item.max} pts
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">${item.desc}</p>
+                        
+                        <!-- Slider Input -->
+                        <input type="range" id="${item.id}" min="0" max="${item.max}" value="0" oninput="updateScore()" class="rubric-slider w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600 mb-4">
+                        
+                        <!-- PANDUAN SKALA RUJUKAN DIBAWAH SOALAN -->
+                        <div class="bg-white p-3 rounded-xl border border-slate-200/60 shadow-inner">
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-2">📌 Panduan Skala Rujukan Juri (Theme Scoring Scale):</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1.5 text-[11px]">
+                                <div class="px-2 py-1 bg-red-50 text-red-700 rounded border border-red-100 font-medium">
+                                    <strong class="font-bold">0:</strong> Tidak mengikut tema
+                                </div>
+                                <div class="px-2 py-1 bg-amber-50 text-amber-800 rounded border border-amber-100 font-medium">
+                                    <strong class="font-bold">1 - 5:</strong> Ada unsur tema tetapi samar
+                                </div>
+                                <div class="px-2 py-1 bg-blue-50 text-blue-800 rounded border border-blue-100 font-medium">
+                                    <strong class="font-bold">6 - 10:</strong> Unsur tema cuba ditampilkan
+                                </div>
+                                <div class="px-2 py-1 bg-teal-50 text-teal-800 rounded border border-teal-100 font-medium">
+                                    <strong class="font-bold">11 - 15:</strong> Terdapat salah satu unsur tema
+                                </div>
+                                <div class="px-2 py-1 bg-emerald-50 text-emerald-800 rounded border border-emerald-200 font-bold sm:col-span-2 md:col-span-2">
+                                    <strong>16 - 20:</strong> Terdapat kedua-dua tema (AI & Green Tech)
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+            updateScore();
+        }
+
+        function updateScore() {
+            let total = 0;
+            document.querySelectorAll('.rubric-slider').forEach(s => {
+                const val = parseInt(s.value) || 0;
+                document.getElementById(`val_${s.id}`).innerText = val;
+                total += val;
+            });
+            document.getElementById('totalScore').innerText = total;
+        }
+
+        function hantarBorang() {
+            const btn = document.getElementById('submitBtn');
+            const hakim = document.getElementById('namaHakim').value;
+            const kod = document.getElementById('kodPeserta').value;
+            const projek = document.getElementById('namaProjek').value;
+
+            if(!hakim || !kod || !projek) {
+                alert("Sila lengkapkan ruangan Nama Hakim, Kod Peserta, dan Tajuk Projek / Please complete all required fields.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = `<span>⏳</span> MENGHANTAR MARKAH / SUBMITTING...`;
+
+            const payload = {
+                judgeName: hakim,
+                participantId: kod,
+                projectTitle: projek,
+                category: document.getElementById('kategori').value,
+                stage: document.getElementById('peringkat').value,
+                score: document.getElementById('totalScore').innerText,
+                feedback: document.getElementById('ulasan').value
+            };
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                alert(`Berjaya! Markah penilaian untuk ${kod} telah direkodkan / Evaluation score for ${kod} successfully recorded.`);
+                document.getElementById('kodPeserta').value = '';
+                document.getElementById('namaProjek').value = '';
+                document.getElementById('ulasan').value = '';
+                switchRubric();
+                btn.disabled = false;
+                btn.innerHTML = `<span>🚀</span> HANTAR MARKAH PENILAIAN / SUBMIT SCORE`;
+            }).catch(err => {
+                alert("Ralat semasa menghantar. Sila semak talian internet anda / Error submitting data.");
+                btn.disabled = false;
+                btn.innerHTML = `<span>🚀</span> HANTAR MARKAH PENILAIAN / SUBMIT SCORE`;
+            });
+        }
+
+        window.onload = switchRubric;
+    </script>
+</body>
+</html>
